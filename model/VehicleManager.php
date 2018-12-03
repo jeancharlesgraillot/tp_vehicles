@@ -69,33 +69,27 @@ class VehicleManager{
 
     public function getVehicle($info)
     {
-        // get by name
-        if (is_string($info))
-        {
-            $query = $this->getDB()->prepare('SELECT * FROM vehicles WHERE name = :name');
-            $query->bindValue('name', $info, PDO::PARAM_INT);
-            $query->execute();
-        }
-        // get by id
-        elseif (is_int($info))
-        {
-            $query = $this->getDB()->prepare('SELECT * FROM vehicles WHERE id = :id');
-            $query->bindValue('id', $info, PDO::PARAM_INT);
-            $query->execute();
-        }
+        $vehicle;
+        $query = $this->getDB()->prepare('SELECT * FROM vehicles WHERE id = :id');
+        $query->bindValue('id', $info, PDO::PARAM_INT);
+        $query->execute();
+        
 
         // $dataCharacter is an associative array which contains informations of a vehicle
         $dataVehicle = $query->fetch(PDO::FETCH_ASSOC);
 
         // We create a new Vehicle object with the associative array $dataCharacter and we return it
         if ($dataVehicle['type'] == 'car') {
-            return new Car($dataVehicle);
+            $vehicle = new Car($dataVehicle);
+            return $vehicle;
         }
         elseif ($dataVehicle['type'] == 'truck') {
-            return new Truck($dataVehicle);
+            $vehicle = new Truck($dataVehicle);
+            return $vehicle;
         }
         elseif ($dataVehicle['type'] == 'motorbike') {
-            return new Motorbike($dataVehicle);
+            $vehicle = new Motorbike($dataVehicle);
+            return $vehicle;
         }
         
     }

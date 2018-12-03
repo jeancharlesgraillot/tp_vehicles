@@ -14,21 +14,12 @@ function loadClass($classname)
 
 spl_autoload_register('loadClass');
 
-// On se connecte à la base de données
+// We connect database
 $db = Database::DB();
-// On instancie un objet $vehicleManager grâce à notre objet PDO
+// We instance $vehicleManager object with our PDO object
 $vehicleManager = new VehicleManager($db);
 
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $vehicleManager->getVehicle($_GET['id']);
-}
-
-
-
-
-
 $vehicle = $vehicleManager->getVehicle($_GET['id']);
-
 
 include "../views/detailsVue.php";
 ?>

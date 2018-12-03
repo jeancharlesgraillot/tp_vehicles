@@ -44,6 +44,9 @@ if (isset($_GET['edit'])) {
 
         }    
     }
-}    
+}
+
+$vehicle = $vehicleManager->getVehicle($_GET['edit']);
+
 include "../views/updateVue.php";
 ?>

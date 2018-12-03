@@ -33,7 +33,7 @@
     foreach($vehicles as $vehicle)
     {
       ?>
-      <div class="row col-12 d-flex justify-content-around my-2">
+      <div class="row col-12 d-flex justify-content-around align-items-center my-2">
         <a href="details.php?id=<?= $vehicle->getId(); ?>"class="col-2"><?= $vehicle->getType() . " " . $vehicle->getBrand() . " " . $vehicle->getName();?></a>
         <a href="index.php?remove=<?= $vehicle->getId(); ?>" class='btn btn-danger'>Supprimer</a>
         <a href="update.php?edit=<?= $vehicle->getId(); ?>" class='btn btn-primary'>Mettre à jour</a>
