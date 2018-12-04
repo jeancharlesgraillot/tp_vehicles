@@ -4,8 +4,8 @@
 
 <form action="" method="POST" class="text-center mt-5">
 
-<select name="type" id="myselect" class="mb-3">
-  <option value="">Choisissez un type de véhicule:</option>
+<select name="type" id="myselect" class="mb-3" required>
+  <option value="" disabled>Choisissez un type de véhicule:</option>
   <option value="car">Voiture</option>
   <option value="truck">Camion</option>
   <option value="motorbike">Moto</option>
@@ -35,8 +35,9 @@
       ?>
       <div class="row col-12 d-flex justify-content-around align-items-center my-2">
         <a href="details.php?id=<?= $vehicle->getId(); ?>"class="col-2"><?= $vehicle->getType() . " " . $vehicle->getBrand() . " " . $vehicle->getName();?></a>
-        <a href="index.php?remove=<?= $vehicle->getId(); ?>" class='btn btn-danger'>Supprimer</a>
         <a href="update.php?edit=<?= $vehicle->getId(); ?>" class='btn btn-primary'>Mettre à jour</a>
+        <a href="index.php?remove=<?= $vehicle->getId(); ?>" class='btn btn-danger'>Supprimer</a>
+        
       </div>
       <?php
     }
