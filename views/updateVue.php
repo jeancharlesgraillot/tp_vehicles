@@ -2,11 +2,12 @@
   include("template/header.php");
 ?>
 
+<a href="index.php" class="btn btn-primary ml-5">Retour accueil</a>
 
 <form action="" method="POST" class="text-center">
 
-<select name="type" id="myselect" class="mb-3">
-  <option value="">Choisissez un type de véhicule:</option>
+<select name="type" id="myselect" class="mb-3" required>
+  <option value="" disabled>Choisissez un type de véhicule:</option>
   <option value="car">Voiture</option>
   <option value="truck">Camion</option>
   <option value="motorbike">Moto</option>
